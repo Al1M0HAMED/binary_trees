@@ -1,11 +1,11 @@
 #include "binary_trees.h"
 /**
- * binary_tree_insert_left - is a function that just creat a left node.
+ * binary_tree_insert_right - is a function that just creat a right node.
  * @parent: is the parent node of the new node.
  * @value: is the new node value.
  * Return: the new node or Null if faild.
  */
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
 	binary_tree_t *new_node;
 
@@ -17,25 +17,25 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	new_node->n = value;
 	new_node->left = NULL;
 	new_node->right = NULL;
-	if (parent->left)
-		swap_nodes(parent->left, new_node);
+	if (parent->right)
+		swap_nodes_right(parent->right, new_node);
 	else
 	{
-		parent->left = new_node;
+		parent->right = new_node;
 		new_node->parent = parent;
 	}
 	return (new_node);
 }
 /**
- * swap_nodes_left - swap the nodes.
+ * swap_nodes_right - swap the nodes.
  * @new_node: is the new node.
  * @old_node: is the old node.
  * Return: nothing
  */
-void swap_nodes_left(binary_tree_t *old_node, binary_tree_t *new_node)
+void swap_nodes_right(binary_tree_t *old_node, binary_tree_t *new_node)
 {
 	new_node->parent = old_node->parent;
-	new_node->left = old_node;
-	old_node->parent->left = new_node;
+	new_node->right = old_node;
+	old_node->parent->right = new_node;
 	old_node->parent = new_node;
 }

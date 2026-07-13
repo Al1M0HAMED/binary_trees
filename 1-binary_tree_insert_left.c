@@ -34,13 +34,8 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
  */
 void swap_nodes(binary_tree_t *old_node, binary_tree_t *new_node)
 {
-	int temp;
-
-	temp = new_node->n;
-	new_node->n = old_node->n;
 	new_node->parent = old_node->parent;
 	new_node->left = old_node;
 	old_node->parent->left = new_node;
 	old_node->parent = new_node;
-	old_node->n = temp;
 }
